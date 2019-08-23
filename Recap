@@ -1,0 +1,27 @@
+What is the return value of document.createElement? And what does it accept as an argument?
+
+The return value is an HTML element - accepting the tag type of element.
+
+
+
+What is the return value of document.querySelector? And what does is accept as an argument?
+
+The return value is the first HTML element that matches its argument - it accepts a tag type, classname (.classname) or id (#id).
+
+
+
+What is the return value document.querySelectorAll?
+
+It returns ALL elements that match the HTML element provided.
+
+
+
+What is the difference between using textContent and appendChild?
+
+textContent changes the content of an element's text, appendChild inserts the element provided to the bottom of the element it is called upon.
+
+
+
+What is the event we handle to access the values of a form, and how do we access the values?
+
+event.target gives us the whole form, if it is a specific input from a form call on the id (event.target.id), to get the values it is located at event.target.value.
