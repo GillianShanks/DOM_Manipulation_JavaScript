@@ -10,7 +10,7 @@
   <title>Gillian's Art</title>
 </head>
 <body>
-  <div id="form-wrapper" class="flex flex-column">
+  <div class="flex flex-column form-wrapper">
     <form id="art-form">
       <div id="form-desc" class="flex flex-row form-item">
         <label for="desc">Description: </label>
@@ -26,11 +26,11 @@
         </select>
       </div>
       <div id="form-height" class="flex flex-row form-item">
-        <label for="height">Size (height): </label>
+        <label for="height">Size (height cm): </label>
         <input id="height" type="number" step="0.01" min="0">
       </div>
       <div id="form-width" class="flex flex-row form-item">
-        <label for="width">Size (width): </label>
+        <label for="width">Size (width cm): </label>
         <input id="width" type="number" step="0.01" min="0">
       </div>
       <div id="form-path" class="flex flex-row form-item">
@@ -43,9 +43,11 @@
     </form>
   </div>
 
-  <div id="art-list">
   <h1 id="list-title">Gillian's Art:</h1>
+  <div id="art-list" class="flex flex-row">
+
 
   </div>
+  <input type="button" id="delete-all" value="Delete All">
 </body>
 </html>

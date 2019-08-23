@@ -10,9 +10,10 @@
   flex-direction: row;
 }
 
-#form-wrapper{
-
+.form-wrapper{
   width: 25em;
+  /* border: 1px solid green; */
+
 }
 
 .form-item{
@@ -29,9 +30,16 @@ input{
 
 #form-save{
   padding-left: 10em;
-  /* border: 1px solid green; */
 }
 
 #save{
 
+}
+
+.list_item{
+  border: 2px solid darkblue;
+  background-color: turquoise;
+  border-radius: 8px;
+  flex-wrap: wrap;
+  min-width: 20em;
 }
