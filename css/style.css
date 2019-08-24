@@ -36,10 +36,16 @@ input{
 
 }
 
-.list_item{
+#art-list{
+    flex-flow: wrap;
+}
+
+#list-item{
   border: 2px solid darkblue;
   background-color: turquoise;
   border-radius: 8px;
-  flex-wrap: wrap;
   min-width: 20em;
+  padding: 1em;
+  margin:1em;
+
 }
