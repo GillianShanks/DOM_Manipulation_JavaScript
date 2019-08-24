@@ -4,50 +4,61 @@ document.addEventListener('DOMContentLoaded', () => {
   const form = document.querySelector('#art-form');
   form.addEventListener('submit', handleSubmit);
 
+  const deleteAll = document.querySelector('#delete-all');
+  deleteAll.addEventListener('click', handleDeleteClick);
+
+  // const size_form = document.querySelectorAll('')
 
 })
 
-//uses two separate helper functions so that it does not at the item-line when there is no input from form (so there are two types of element that can be added: one without an event.target and one with an event.target)
-const addElement = (parentElement, type, idName, classNames=[], text, itemID) => {
+
+//use two separate helper functions so that it does not at the item-line when there is no input from form (so there are two types of element that can be added: one without an event.target and one with an event.target)
+  // refactored to use one helper function and put the if statement in the addEventListener>callbackfunction
+
+const addElement = (parentElement, type, idName, classNames=[], text, formID) => {
   const childElement = document.createElement(`${type}`);
   childElement.id = `${idName}`;
   classNames.forEach((className) => {
     childElement.classList.add(`${className}`);
   })
   parentElement.appendChild(childElement);
-  if (itemID) {
-    childElement.textContent = `${text}` + event.target[itemID].value;
-  } else {
-    childElement.textContent = `${text}`;
+  childElement.textContent = `${text}`;
+  if (formID) {
+    childElement.textContent += event.target[formID].value;
   }
   return childElement;
 };
 
-// const addElementItem = (parentElement, type, idName, classNames=[], text, itemID) => {
+// const addElementItem = (parentElement, type, idName, classNames=[], text, formID) => {
 //   if (event.target[itemID].value) {
 //     const childElement = addElement(parentElement, type, idName, classNames, text);
-//     childElement.textContent = `${text}` + event.target[itemID].value;
+//     childElement.textContent = `${text}` + event.target[formID].value;
 //   };
 // };
-
+const handleDeleteClick = (event) => {
+  const art_list = document.querySelector('#art-list');
+  art_list.innerHTML= "";
+}
 
 const handleSubmit = (event) => {
   event.preventDefault();
   // console.log(event.target.height.value);
 
-  const art_list = document.querySelector('#art-list');
+  const art_list = document.querySelector('#art-list'); //can't place outside?
 
   const item = addElement(art_list, 'div', 'list-item', ['flex', 'flex-column'], '');
+
+  const img = addElement(item, 'img', 'item-img', ['item-line'], '');
+  img.src = event.target.path.value;
+  img.alt = event.target.desc.value; // to replace with new form element?
   addElement(item, 'h2', 'item-desc', ['item-line'], 'Description: ', 'desc');
   addElement(item, 'h3', 'item-type', ['item-line'], 'Type: ', 'type');
 
-  const size = addElement(item, 'div', 'item-size', ['item-line', 'flex', 'flex-row'], '');
   if (event.target.height.value && event.target.width.value) {
-    addElement(size, 'p', 'item-height', ['item-line'], 'Size (cm): ', 'height');
-    addElement(size, 'p', 'item-width', ['item-line'], "x", 'width');
+    const size = addElement(item, 'div', 'item-size', ['item-line', 'flex', 'flex-row'], '');
+      addElement(size, 'p', 'item-height', ['item-line'], 'Size (cm): ', 'height');
+      addElement(size, 'p', 'item-width', ['item-line'], "x", 'width');
   }
-
-  addElement(item, 'p', 'item-path', ['item-line'], 'Path: ', 'path');
 
 
   event.target.reset();

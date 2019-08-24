@@ -33,7 +33,13 @@ input{
 }
 
 #save{
-
+  background-color: turquoise;
+  border-radius: 4px;
+  color: white;
+  outline: none;
+}
+#save:hover{
+  background-color: blue;
 }
 
 #art-list{
@@ -44,15 +50,26 @@ input{
   border: 2px solid darkblue;
   background-color: turquoise;
   border-radius: 8px;
-  min-width: 20em;
+  max-width: 20em;
   padding: 1em;
   margin:1em;
-  /* display:flex;
-  flex-direction: column; */
-
 }
 
-/* #item-size{
-  display:flex;
-  flex-direction: row;
-} */
+#item-img{
+  /* width:100%; */
+  width:20em;
+}
+
+#item-desc {
+  flex-flow: wrap;
+}
+
+#delete-all{
+  background-color: violet;
+  border-radius: 4px;
+  color: white;
+  outline: none;
+}
+#delete-all:hover{
+  background-color: purple;
+}
