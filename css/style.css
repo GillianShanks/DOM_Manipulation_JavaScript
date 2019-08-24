@@ -16,12 +16,23 @@
 
 }
 
+body{
+  background-image: url('../img/purple.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  /* background-size: cover; */
+  overflow: scroll;
+  color: white;
+
+}
+
 .form-item{
   padding:0.2em;
 }
 
 label{
   width: 10em;
+  font-weight: bold;
   /* border: 1px solid green; */
 
 }
@@ -30,18 +41,41 @@ input{
   flex:1;
 }
 
+.form-wrapper{
+  font-size: 1.2em;
+}
+
+#art-form {
+background-image: linear-gradient(#7f32d1, #bf73e6);
+border: 2px dashed purple;
+
+}
+
 #form-save{
   padding-left: 10em;
+  padding-top: 1em;
+  padding-bottom: 1em;
 }
 
 #save{
-  background-color: turquoise;
+  border: 1px solid purple;
+  background-color: violet;
   border-radius: 4px;
   color: white;
   outline: none;
+  font-size: 1em;
 }
 #save:hover{
-  background-color: blue;
+  background-color: purple;
+}
+
+#list-title{
+  font-family:cursive;
+  font-weight: bold;
+  text-align: center;
+  font-size: 3em;
+  border-top: 2px dashed purple;
+  border-bottom: 2px dashed purple;
 }
 
 #art-list{
@@ -52,18 +86,13 @@ input{
   border: 2px solid darkblue;
   background-color: turquoise;
   border-radius: 8px;
-  /* max-width: 20em; */
+  /* max-width: 20em; */ /* needed to make words wrap*/
   padding: 1em;
   margin:1em;
 }
 
-#item-img{
-  /* width:100%; */
-  /* width:20em; */
-}
-
 .small{
-  width:20em;
+  max-width:20em;
 }
 
 .large{
@@ -75,29 +104,18 @@ input{
 }
 
 #delete-all{
-  background-color: violet;
+  border: 1px solid blue;
+  background-color: turquoise;
   border-radius: 4px;
   color: white;
   outline: none;
+  font-size: 1em;
 }
 #delete-all:hover{
-  background-color: purple;
-}
-
-.view-label{
-  /* border: 1px solid pink; */
-
+  background-color: blue;
 }
 
 .radio-lab{
 width:auto;
 padding:0em 1em 0em 0.5em;
-}
-
-.radio-btns{
-  /* border: 1px solid purple; */
-}
-
-#view-form{
-
 }
