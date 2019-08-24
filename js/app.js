@@ -8,18 +8,20 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 
 //uses two separate helper functions so that it does not at the item-line when there is no input from form (so there are two types of element that can be added: one without an event.target and one with an event.target)
-const addElement = (parentElement, type, idName, className, text) => {
+const addElement = (parentElement, type, idName, classNames=[], text) => {
   const childElement = document.createElement(`${type}`);
   childElement.id = `${idName}`;
-  childElement.classList.add(`${className}`);
+  classNames.forEach((className) => {
+    childElement.classList.add(`${className}`);
+  })
   parentElement.appendChild(childElement);
   childElement.textContent = `${text}`;
   return childElement;
 };
 
-const addElementItem = (parentElement, type, idName, className, text, itemID) => {
+const addElementItem = (parentElement, type, idName, classNames=[], text, itemID) => {
   if (event.target[itemID].value) {
-    const childElement = addElement(parentElement, type, idName, className, text);
+    const childElement = addElement(parentElement, type, idName, classNames, text);
     childElement.textContent = `${text}` + event.target[itemID].value;
   };
 };
@@ -31,18 +33,15 @@ const handleSubmit = (event) => {
 
   const art_list = document.querySelector('#art-list');
 
-  const item = addElement(art_list, 'div', 'list-item', 'flex', '');
-  item.classList.add('flex-column');
-  addElementItem(item, 'h2', 'item-desc', 'item-line', 'Description: ', 'desc');
-  addElementItem(item, 'h3', 'item-type', 'item-line', 'Type: ', 'type');
+  const item = addElement(art_list, 'div', 'list-item', ['flex', 'flex-column'], '');
+  addElementItem(item, 'h2', 'item-desc', ['item-line'], 'Description: ', 'desc');
+  addElementItem(item, 'h3', 'item-type', ['item-line'], 'Type: ', 'type');
 
-  const size = addElement(item, 'div', 'item-size', 'item-line', '');
-  size.classList.add('flex');
-  size.classList.add('flex-row');
-  addElementItem(size, 'p', 'item-height', 'item-line', 'Size (cm): ', 'height');
-  addElementItem(size, 'p', 'item-width', 'item-line', "x", 'width');
+  const size = addElement(item, 'div', 'item-size', ['item-line', 'flex', 'flex-row'], '');
+  addElementItem(size, 'p', 'item-height', ['item-line'], 'Size (cm): ', 'height');
+  addElementItem(size, 'p', 'item-width', ['item-line'], "x", 'width');
 
-  addElementItem(item, 'p', 'item-path', 'item-line', 'Path: ', 'path');
+  addElementItem(item, 'p', 'item-path', ['item-line'], 'Path: ', 'path');
 
 
   event.target.reset();
