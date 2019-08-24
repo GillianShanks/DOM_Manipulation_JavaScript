@@ -47,5 +47,12 @@ input{
   min-width: 20em;
   padding: 1em;
   margin:1em;
+  display:flex;
+  flex-direction: column;
 
+}
+
+#item-size{
+  display:flex;
+  flex-direction: row;
 }
