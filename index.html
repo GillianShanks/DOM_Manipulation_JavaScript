@@ -5,8 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-  <script src="js/app.js"></script>
   <link rel="stylesheet" href="css/style.css">
+
+  <script src="js/app.js"></script>
+  
   <title>Gillian's Art</title>
 </head>
 <body>
@@ -38,13 +40,26 @@
         <input required id="path" type="text">
       </div>
       <div id="form-save">
-      <input type="submit" id="save" value="Save">
+        <input type="submit" id="save" value="Save">
       </div>
     </form>
   </div>
+  <br/>
+  <div class="flex flex-row form-wrapper">
+    <div id="radio-btns" class="flex flex-row">
+      <label class="view-label flex" for="view">Select a view:</label>
+      <div class="form-item flex">
+        <label class="radio-lab" for="small">
+          <input checked type="radio" name="view" id="small" value="small">
+        Small</label>
+      </div>
+      <div class="form-item flex">
+        <label class="radio-lab" for="large">
+          <input type="radio" name="view" id="large" value="large">
+        Large</label>
+      </div>
+    </div>
 
-  <div>
-    
   </div>
 
   <h1 id="list-title">Gillian's Art:</h1>

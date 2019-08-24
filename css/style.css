@@ -12,7 +12,7 @@
 
 .form-wrapper{
   width: 25em;
-  /* border: 1px solid green; */
+  /* border: 1px solid blue; */
 
 }
 
@@ -22,6 +22,8 @@
 
 label{
   width: 10em;
+  /* border: 1px solid green; */
+
 }
 
 input{
@@ -50,14 +52,22 @@ input{
   border: 2px solid darkblue;
   background-color: turquoise;
   border-radius: 8px;
-  max-width: 20em;
+  /* max-width: 20em; */
   padding: 1em;
   margin:1em;
 }
 
 #item-img{
   /* width:100%; */
+  /* width:20em; */
+}
+
+.small{
   width:20em;
+}
+
+.large{
+  width:100%;
 }
 
 #item-desc {
@@ -72,4 +82,22 @@ input{
 }
 #delete-all:hover{
   background-color: purple;
+}
+
+.view-label{
+  /* border: 1px solid pink; */
+
+}
+
+.radio-lab{
+width:auto;
+padding:0em 1em 0em 0.5em;
+}
+
+.radio-btns{
+  /* border: 1px solid purple; */
+}
+
+#view-form{
+
 }
