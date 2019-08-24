@@ -8,23 +8,27 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 
 //uses two separate helper functions so that it does not at the item-line when there is no input from form (so there are two types of element that can be added: one without an event.target and one with an event.target)
-const addElement = (parentElement, type, idName, classNames=[], text) => {
+const addElement = (parentElement, type, idName, classNames=[], text, itemID) => {
   const childElement = document.createElement(`${type}`);
   childElement.id = `${idName}`;
   classNames.forEach((className) => {
     childElement.classList.add(`${className}`);
   })
   parentElement.appendChild(childElement);
-  childElement.textContent = `${text}`;
+  if (itemID) {
+    childElement.textContent = `${text}` + event.target[itemID].value;
+  } else {
+    childElement.textContent = `${text}`;
+  }
   return childElement;
 };
 
-const addElementItem = (parentElement, type, idName, classNames=[], text, itemID) => {
-  if (event.target[itemID].value) {
-    const childElement = addElement(parentElement, type, idName, classNames, text);
-    childElement.textContent = `${text}` + event.target[itemID].value;
-  };
-};
+// const addElementItem = (parentElement, type, idName, classNames=[], text, itemID) => {
+//   if (event.target[itemID].value) {
+//     const childElement = addElement(parentElement, type, idName, classNames, text);
+//     childElement.textContent = `${text}` + event.target[itemID].value;
+//   };
+// };
 
 
 const handleSubmit = (event) => {
@@ -34,14 +38,16 @@ const handleSubmit = (event) => {
   const art_list = document.querySelector('#art-list');
 
   const item = addElement(art_list, 'div', 'list-item', ['flex', 'flex-column'], '');
-  addElementItem(item, 'h2', 'item-desc', ['item-line'], 'Description: ', 'desc');
-  addElementItem(item, 'h3', 'item-type', ['item-line'], 'Type: ', 'type');
+  addElement(item, 'h2', 'item-desc', ['item-line'], 'Description: ', 'desc');
+  addElement(item, 'h3', 'item-type', ['item-line'], 'Type: ', 'type');
 
   const size = addElement(item, 'div', 'item-size', ['item-line', 'flex', 'flex-row'], '');
-  addElementItem(size, 'p', 'item-height', ['item-line'], 'Size (cm): ', 'height');
-  addElementItem(size, 'p', 'item-width', ['item-line'], "x", 'width');
+  if (event.target.height.value && event.target.width.value) {
+    addElement(size, 'p', 'item-height', ['item-line'], 'Size (cm): ', 'height');
+    addElement(size, 'p', 'item-width', ['item-line'], "x", 'width');
+  }
 
-  addElementItem(item, 'p', 'item-path', ['item-line'], 'Path: ', 'path');
+  addElement(item, 'p', 'item-path', ['item-line'], 'Path: ', 'path');
 
 
   event.target.reset();
@@ -53,6 +59,7 @@ const handleSubmit = (event) => {
   // list.appendChild(item);
 
   // const item = document.querySelector(`#list-item`);
+
   // const desc = document.createElement('h2');
   // item.appendChild(desc);
   // desc.textContent = `Description: ${event.target.desc.value}`;
@@ -66,6 +73,7 @@ const handleSubmit = (event) => {
   // const height_val =event.target.height.value;
   // const width_val =event.target.width.value;
 
+//add div around height and width
   // if (height_val && width_val){
   // const size = document.createElement('p');
   // size.textContent = `Size (hxw): ${event.target.height.value}cm x ${event.target.width.value}cm`;
