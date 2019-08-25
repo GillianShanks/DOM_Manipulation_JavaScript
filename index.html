@@ -74,7 +74,7 @@
         <!-- nav list and buttons -->
         <div class="list-btns flex flex-column">
           <div id="nav-list">
-            <h2>Nav List</h2>
+            <h2 id="nav-title">Nav List (Oldest First)</h2>
             <ul id="desc-list">
 
 
@@ -83,18 +83,11 @@
 
           <div class="flex flex-row form-wrapper">
             <div id="nav-btns" class="flex flex-row">
-              <label class="nav-label flex" for="nav">Select an order:</label>
+              <label class="nav-label flex" for="nav">Change order:</label>
               <div class="form-item flex">
-                <label class="radio-lab" for="newest">
-                  <input checked type="radio" name="nav" id="newest" value="newest">
-                  Newest</label>
-                </div>
-                <div class="form-item flex">
-                  <label class="radio-lab" for="oldest">
-                    <input type="radio" name="view" id="oldest" value="oldest">
-                    Oldest</label>
-                  </div>
-                </div>
+                <input type="button" id="order" value="Newest First">
+              </div>
+            </div>
 
               </div>
 

@@ -62,7 +62,7 @@ border: 2px dashed purple;
   border-radius: 4px;
   color: white;
   outline: none;
-  font-size: 1em;
+  font-size: 0.7em;
 }
 #save:hover{
   background-color: purple;
@@ -158,4 +158,16 @@ li>a{
 
   margin-top:1em;
   /* height: 5em; */
+}
+
+#order{
+  border: 1px solid purple;
+  background-color: violet;
+  border-radius: 4px;
+  color: white;
+  outline: none;
+  font-size: 0.7em;
+}
+#order:hover{
+  background-color: purple;
 }

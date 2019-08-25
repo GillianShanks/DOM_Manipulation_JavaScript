@@ -15,6 +15,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const large_btn = document.querySelector('#large');
   large_btn.addEventListener('click', handleSizeClick);
 
+  const order = document.querySelector('#order');
+  order.addEventListener('click', handleOrderClick);
+
+
 })
 
 
@@ -62,7 +66,7 @@ const handleSubmit = function(event){
 
   const nav_item = addElement(nav_list, 'li', '', ['nav-item'], '');
   const nav_link = addElement(nav_item, 'a', '', [], `${event.target.desc.value}`);
-  nav_link.href=`index.html/#${counter}`
+  // nav_link.href=`index.html/#${counter}`
 
   event.target.reset();
 
@@ -97,5 +101,27 @@ const handleSizeClick = function(event){
         img.classList.add('large');
       }
     });
+  };
+};
+
+const handleOrderClick = function(event){
+  // console.log(event.target.value);
+  const order = document.querySelector('#order');
+  const nav_title = document.querySelector('#nav-title');
+
+  const nav = document.querySelector('#desc-list');
+  const nav_list = nav.querySelectorAll('li');
+
+
+  for (let i = nav_list.length - 1; i>=0; i--){
+    nav.appendChild(nav_list[i]);
+  }
+
+  if (event.target.value === 'Oldest First'){
+    order.value='Newest First';
+    nav_title.textContent = "Nav List (Oldest First)"
+  } else if (event.target.value === 'Newest First'){
+    order.value='Oldest First';
+    nav_title.textContent = "Nav List (Newest First)"
   };
 };
