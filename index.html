@@ -12,60 +12,101 @@
   <title>Gillian's Art</title>
 </head>
 <body>
-  <div class="flex flex-column form-wrapper">
-    <form id="art-form">
-      <div id="form-desc" class="flex flex-row form-item">
-        <label for="desc">Description: </label>
-        <input required id="desc" type="text">
-      </div>
-      <div id="form-type" class="flex flex-row form-item">
-        <label for="type">Type: </label>
-        <select name="type" id="type">
-          <option selected disabled required>Select:</option>
-          <option value="digital">Digital</option>
-          <option value="watercolour">Watercolour</option>
-          <option value="card">Card</option>
-        </select>
-      </div>
-      <div id="form-height" class="flex flex-row form-item">
-        <label for="height">Size (height cm): </label>
-        <input id="height" type="number" step="0.01" min="0">
-      </div>
-      <div id="form-width" class="flex flex-row form-item">
-        <label for="width">Size (width cm): </label>
-        <input id="width" type="number" step="0.01" min="0">
-      </div>
-      <div id="form-path" class="flex flex-row form-item">
-        <label for="path">Location (url): </label>
-        <input required id="path" type="text">
-      </div>
-      <div id="form-save">
-        <input type="submit" id="save" value="Save">
-      </div>
-    </form>
-  </div>
-  <br/>
-  <div class="flex flex-row form-wrapper">
-    <div id="radio-btns" class="flex flex-row">
-      <label class="view-label flex" for="view">Select a view:</label>
-      <div class="form-item flex">
-        <label class="radio-lab" for="small">
-          <input checked type="radio" name="view" id="small" value="small">
-        Small</label>
-      </div>
-      <div class="form-item flex">
-        <label class="radio-lab" for="large">
-          <input type="radio" name="view" id="large" value="large">
-        Large</label>
-      </div>
-    </div>
 
-  </div>
+  <div class="page-top flex flex-row">
 
-  <h1 id="list-title">Gillian Shanks - Art Portfolio</h1>
-  <div id="art-list" class="flex flex-row">
+    <div class="form_btns flex flex-column">
 
-  </div>
-  <input type="button" id="delete-all" value="Delete All">
-</body>
-</html>
+      <div class="flex flex-column form-wrapper">
+        <form id="art-form">
+          <div id="form-desc" class="flex flex-row form-item">
+            <label for="desc">Description: </label>
+            <input required id="desc" type="text">
+          </div>
+          <div id="form-type" class="flex flex-row form-item">
+            <label for="type">Type: </label>
+            <select name="type" id="type">
+              <option selected disabled required>Select:</option>
+              <option value="digital">Digital</option>
+              <option value="watercolour">Watercolour</option>
+              <option value="card">Card</option>
+            </select>
+          </div>
+          <div id="form-height" class="flex flex-row form-item">
+            <label for="height">Size (height cm): </label>
+            <input id="height" type="number" step="0.01" min="0">
+          </div>
+          <div id="form-width" class="flex flex-row form-item">
+            <label for="width">Size (width cm): </label>
+            <input id="width" type="number" step="0.01" min="0">
+          </div>
+          <div id="form-path" class="flex flex-row form-item">
+            <label for="path">Location (url): </label>
+            <input required id="path" type="text">
+          </div>
+          <div id="form-save">
+            <input type="submit" id="save" value="Save">
+          </div>
+        </form>
+      </div>
+
+      <br/>
+      <!-- large/small radio buttons -->
+      <div class="flex flex-row form-wrapper">
+        <div id="radio-btns" class="flex flex-row">
+          <label class="view-label flex" for="view">Select a view:</label>
+          <div class="form-item flex">
+            <label class="radio-lab" for="small">
+              <input checked type="radio" name="view" id="small" value="small">
+              Small</label>
+            </div>
+            <div class="form-item flex">
+              <label class="radio-lab" for="large">
+                <input type="radio" name="view" id="large" value="large">
+                Large</label>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- nav list and buttons -->
+        <div class="list-btns flex flex-column">
+          <div id="nav-list">
+            <h2>Nav List</h2>
+            <ul id="desc-list">
+
+
+            </ul>
+          </div>
+
+          <div class="flex flex-row form-wrapper">
+            <div id="nav-btns" class="flex flex-row">
+              <label class="nav-label flex" for="nav">Select an order:</label>
+              <div class="form-item flex">
+                <label class="radio-lab" for="newest">
+                  <input checked type="radio" name="nav" id="newest" value="newest">
+                  Newest</label>
+                </div>
+                <div class="form-item flex">
+                  <label class="radio-lab" for="oldest">
+                    <input type="radio" name="view" id="oldest" value="oldest">
+                    Oldest</label>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+          <!-- end of page-top -->
+
+          <!-- all of art -->
+          <h1 id="list-title">Gillian Shanks - Art Portfolio</h1>
+          <div id="art-list" class="flex flex-row">
+
+          </div>
+          <input type="button" id="delete-all" value="Delete All">
+        </body>
+        </html>

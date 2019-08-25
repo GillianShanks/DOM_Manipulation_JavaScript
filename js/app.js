@@ -1,3 +1,5 @@
+let counter=0;
+
 document.addEventListener('DOMContentLoaded', () => {
   console.log("JavaScript Loaded");
 
@@ -33,11 +35,11 @@ const addElement = function (parentElement, type, idName, classNames=[], text, f
 
 const handleSubmit = function(event){
   event.preventDefault();
-  // console.log(event.target.height.value);
+  counter++;
 
   const art_list = document.querySelector('#art-list'); //can't place outside?
 
-  const item = addElement(art_list, 'div', 'list-item', ['flex', 'flex-column'], '');
+  const item = addElement(art_list, 'div', `${counter}`, ['list-item', 'flex', 'flex-column'], '');
 
   const img = addElement(item, 'img', 'item-img', ['item-line'], '');
   img.src = event.target.path.value;
@@ -53,6 +55,14 @@ const handleSubmit = function(event){
     addElement(size, 'p', 'item-height', ['item-line'], 'Size (cm): ', 'height');
     addElement(size, 'p', 'item-width', ['item-line'], "x", 'width');
   }
+
+
+  //make nav list
+  const nav_list = document.querySelector("#desc-list");
+
+  const nav_item = addElement(nav_list, 'li', '', ['nav-item'], '');
+  const nav_link = addElement(nav_item, 'a', '', [], `${event.target.desc.value}`);
+  nav_link.href=`index.html/#${counter}`
 
   event.target.reset();
 
